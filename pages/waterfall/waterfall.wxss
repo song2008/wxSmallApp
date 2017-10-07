@@ -1,0 +1,84 @@
+/**waterfall.wxss**/
+.header {
+	width:100%;
+	height:88rpx;
+	margin:4rpx;
+}
+.header input {
+	box-sizing:border-box;
+	width:99%;
+	height:80rpx;
+	line-height:80rpx;
+	padding-left:40rpx;
+	color: #999;
+	font-size: 28rpx;
+	border:1px solid #ddd;
+	box-shadow:inset 1rpx 4rpx 6rpx #999;
+}
+/**/
+.list{
+	overflow:hidden;
+	display:flex;
+	flex-direction:row;
+	width:100%;
+}
+.column{
+	display:inline-box;
+	width:49%;
+}
+.list .column:first-child{
+	float:left;
+	margin-right:1%;
+}
+.list .column:last-child{
+	float:right;
+	margin-left:1%;
+}
+.item{
+	display:flex;
+	flex:1;
+	flex-direction: column;
+	padding-bottom:30rpx;
+	margin-bottom:30rpx;
+	background:#fff;
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.12);
+}
+.item .img{
+	width:100%;
+	height:200rpx;
+}
+
+.item .title, .item .text{
+	padding:0px 8px;
+	overflow:hidden;
+}
+.item .title{
+	display:block;
+	padding:20rpx 16rpx;
+	margin-bottom:10rpx;
+	font-size:34repx;
+	color:#333;
+}
+.item .text{
+	max-height:120rpx;
+	line-height:40rpx;
+	font-size:28rpx;
+	color:#333;
+}
+.tips{
+	overflow:hidden;
+	text-align:center;
+	margin:40rpx 0 60rpx;
+	font-size:28rpx;
+	color:#aaa;
+}
+.tips .tips_load{
+	float:left;
+	width:100rpx;
+	height:100rpx;
+	padding-left:30%;
+}
+.tips .tips_text{
+	float:left;
+	margin-top:40rpx;
+}

@@ -1,0 +1,65 @@
+<!--pages/home/home.wxml-->
+<view class="head_video">
+  <video bindplay="playMy" id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+</view>
+<!--饰品展示区  -->
+<!-- <view class="class_list">
+  <navigator class="class_list_child" url="" open-type="navigate" hover-class="navigator-hover">上装</navigator>
+  <navigator class="class_list_child" url="" open-type="navigate" hover-class="navigator-hover">下装</navigator>
+  <navigator class="class_list_child" url="" open-type="navigate" hover-class="navigator-hover">套装</navigator>
+  <navigator class="class_list_child" url="" open-type="navigate" hover-class="navigator-hover">裙装</navigator>
+  <navigator class="class_list_child" url="" open-type="navigate" hover-class="navigator-hover">鞋帽</navigator>
+  <navigator class="class_list_child" url="" open-type="navigate" hover-class="navigator-hover">饰品</navigator>
+</view> -->
+<view class="clear"></view>
+<!--轮播图区域  -->
+<view id="carousel">
+  <swiper autoplay interval="{{1500}}" duration="{{1000}}" circular="{{true}}" indicator-dots indicator-color	indicator-active-color>
+      <swiper-item>
+        <image mode="scaleToFill" src="../../images/timg.jpg" class="slide-image"/>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../images/yanjing.jpg" class="slide-image"/>
+      </swiper-item>
+  </swiper>
+</view>
+
+<!--产品分类区  -->
+<view class="hot-box-main WxMasonryView" >
+  <block>
+    <view class="WxMasonry">
+        <navigator  id="{{datalist[i].stories[j].id}}" url="../../images/goods.jpg">
+            <image class="WxMasonryImage" id="{{i*10+j}}"  mode="aspectFill" bindload="WxMasonryImageLoad" src="../../images/goods.jpg" />
+            <view class="list-box-title">dddd</view>
+        </navigator>
+    </view>
+  </block>
+  <block>
+    <view class="WxMasonry">
+        <navigator  id="{{datalist[i].stories[j].id}}" url="../../images/goods.jpg">
+            <image class="WxMasonryImage" id="{{i*10+j}}"  mode="aspectFill" bindload="WxMasonryImageLoad" src="../../images/goods2.jpg" />
+            <view class="list-box-title">dddd</view>
+        </navigator>
+    </view>
+  </block>
+  <block>
+    <view class="WxMasonry">
+        <navigator  id="{{datalist[i].stories[j].id}}" url="../../images/goods.jpg">
+            <image class="WxMasonryImage" id="{{i*10+j}}"  mode="aspectFill" bindload="WxMasonryImageLoad" src="../../images/goods.jpg" />
+            <view class="list-box-title">dddd</view>
+        </navigator>
+    </view>
+  </block>
+  <block>
+    <view class="WxMasonry">
+        <navigator  id="{{datalist[i].stories[j].id}}" url="../../images/goods.jpg">
+            <image class="WxMasonryImage" id="{{i*10+j}}"  mode="aspectFill" bindload="WxMasonryImageLoad" src="../../images/goods2.jpg" />
+            <view class="list-box-title">dddd</view>
+        </navigator>
+    </view>
+  </block>
+</view>
+
+
+
+

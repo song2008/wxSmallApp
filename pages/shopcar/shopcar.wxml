@@ -1,0 +1,50 @@
+<!--pages/shopcar/shopcar.wxml-->
+<!--头部  -->
+<view class='car-head'>
+  <view class='car-head-ch'>购物清单</view>
+  <view class='car-head-ch' bindtap='editCars' wx:if="{{edit}}">编辑</view>
+  <view class='car-head-ch' bindtap='editFinsh' wx:else="{{edit}}">完成</view>
+</view>
+<!-- 产品部 -->
+<view class='car-goods'>
+  <block wx:for="{{cart}}" wx:key="id" wx:for-index="indexName" wx:for-item="itemName">
+    <view id="{{indexName}}" class='car-goods-list' catchtap='selectGoods'>
+      <view class='car-goods-icon'>
+        <icon wx:if="{{itemName.status==1}}" type='success' size='20' color='red'></icon>
+      </view>
+      <image src='{{itemName.imgUrl}}'></image>
+      <view class='car-goods-des'>
+        <view class='goods-des'>{{itemName.name}}</view>
+        <view class='goods-des-bottom'>
+          <text>尺码：M 颜色：黄</text>
+          <view class='btn-box'>
+            <text style='color:red;'>￥ {{itemName.price}}</text>
+            <view class='btn'>
+              <view id="{{indexName}}" class='add-del' catchtap="minGoods">-</view>
+              <text>{{itemName.count}}</text>
+              <view id="{{indexName}}" class='add-del' catchtap="addGoods">+</view>
+            </view>
+          </view>
+        </view> 
+      </view>
+    </view>
+  </block>
+</view>
+
+<!--底部  -->
+<view class='car-foot'>
+  <view class='foot-item'>
+    <view class='icon-item' catchtap="chouseAll">
+      <view class='car-goods-icon'>
+        <icon wx:if="{{all}}"  type='success' size='20' color='red'></icon>
+      </view>
+      <view style='margin-left:10rpx;'>全选</view>
+    </view>
+    <view id='heji' wx:if="{{edit}}">合计：￥ {{total}}</view>
+    <view id='jiesuan' wx:if="{{edit}}" >去结算</view>
+    <view id='jiesuan' wx:else="{{edit}}" catchtap='delGoods'>删除</view>
+  </view> 
+</view>
+
+
+

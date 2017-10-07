@@ -1,0 +1,35 @@
+<!--waterfall.wxml-->
+<import src="../template/waterfall"/>
+
+<view class="container">
+  
+  <view class="header">
+    <input placeholder="{{keywords}}" bindchange="handleSearch"/>
+  </view>
+
+  <!--下拉-->
+  <scroll-view class="container" scroll-y="true" bindscrolltolower="handleLoadMore">
+    <view class="list">
+      <view class="column" >
+        <!--模板-->
+        <template is="waterfall-list1" data="{{ list1 }}"/>
+      </view>
+
+      <view class="column">
+        <!--模板-->
+        <template is="waterfall-list2" data="{{ list2 }}"/>
+      </view>
+    </view>
+    
+    <view class="tips">
+      <view wx:if="{{ hasMore }}">
+        <image class="tips_load" src="/images/loading.gif" />
+        <text class="tips_text">玩了命的加载中...</text>
+      </view>
+      <view wx:else>
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>

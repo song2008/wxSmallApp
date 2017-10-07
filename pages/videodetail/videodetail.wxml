@@ -1,0 +1,4 @@
+<!--pages/videodetail/videodetail.wxml-->
+<view class="continer header">
+    <image class="item-image" src="/images/timg.jpg" mode="aspectFill" />
+</view>

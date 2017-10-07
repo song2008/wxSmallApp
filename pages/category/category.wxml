@@ -1,0 +1,140 @@
+<!--pages/category/category.wxml-->
+<!--搜索框组件  -->
+<view class="searchs">
+  <view class='searchs-box'>
+    <icon type='search' size='16'></icon>
+    <input value='{{inputTxt}}' placeholder='输入您要搜索的商品' bindfocus='onFoucs' bindblur="onBlur"></input>
+    <icon type='clear' size='16' catchtap='searchClear'></icon>
+  </view>
+    <image wx:if="{{btnType}}" src='../../images/toolbar/Category-list1.png'></image>   
+    <view wx:else="{{btnType}}" class='search-btn' catchtap='searchBtn'>搜索</view>   
+</view>
+<!--排序组件  -->
+<view class='order-view'>
+  <view id='1' catchtap='chouseList'>
+    <view wx:if="{{chouseOrder==1}}" style="color:red;">综合</view>
+    <view wx:else>综合</view>
+  </view>
+  <view id='2' catchtap='chouseList'>
+    <view wx:if="{{chouseOrder==2}}" style="color:red;">新品</view>
+    <view wx:else>新品</view>
+  </view>
+  <view id='3' catchtap='chouseList'>
+    <view wx:if="{{chouseOrder==3}}" style="color:red;" class='list-price'>价格
+      <image wx:if="{{priceOrderType==1}}" src='../../images/toolbar/orderUp.png'></image>      <!-- 升序图片 -->
+      <image wx:else src='../../images/toolbar/orderDown.png'></image>                          <!-- 降序图片 -->
+    </view><view wx:else class='list-price'>价格<image src='../../images/toolbar/orderPrice.png'></image></view>
+  </view>
+  <image catchtap='changeList' src='../../images/toolbar/list_type1.png' wx:if="{{listType}}"></image>
+  <image catchtap='changeList' src='../../images/toolbar/list_type2.png' wx:else></image>
+</view>
+
+<!-- 商品组件1 （商品组按列表分两种）-->
+<!--wxs 文字截取  -->
+<wxs module="m1">
+  var textSub = function(str) {
+    var newStr = '';
+    for(var i=0 ; i<str.length;i++){  
+      if(i>21){
+        break;
+      }
+      newStr += str[i];
+    }
+    if(str.length>21){
+      newStr += '...';
+    }
+    return newStr;
+  }
+  module.exports.textSub = textSub;
+</wxs>
+<view class='goods_list' wx:if="{{listType}}">
+  <block wx:for="{{goodslist}}" wx:for-index="indexName" wx:for-item="itemName" wx:key="{{id}}">
+    <view class='goods_box'>
+      <!-- <image src='{{itemName.imgUrl}}' mode='aspectFill'></image> -->
+       <image src='{{itemName.imgUrl}}' mode='aspectFill'></image> 
+      <view class='text_box'>
+        <text class='goods_count'>{{m1.textSub(itemName.name)}}</text>
+        <view class='money_box'>
+          <text class='goods_price'>￥{{itemName.price}}</text>
+          <image data-index="{{indexName}}" catchtap='chouseGoods' src='../../images/toolbar/cars.png'></image>
+        </view> 
+      </view> 
+    </view>
+  </block>
+</view>  
+<view class='goods_list2' wx:else="{{listType}}">
+  <block wx:for="{{goodslist}}" wx:for-index="indexName" wx:for-item="itemName" wx:key="{{id}}">
+    <view class='goods_box2'>
+      <image src='{{itemName.imgUrl}}' mode='aspectFill'></image>
+      <view class='text_box2'>
+        <view class='goods_count2'>{{itemName.name}}</view>
+        <view class='money_box2'>
+          <text class='goods_price'>￥{{itemName.price}}</text>
+          <image data-index="{{indexName}}" catchtap='chouseGoods' src='../../images/toolbar/cars.png'></image>
+        </view> 
+      </view> 
+    </view>
+  </block>
+</view>  
+
+<!--模态框  -->
+<view class='modal-back' hidden='{{showModal}}' catchtap='hideModal' catchtouchmove="preventTouchMove"></view> 
+<view class='modal-box' hidden='{{showModal}}'>
+  <view class='modal-box-head'>
+    <image src='../../images/123123123123.jpg' mode='aspectFill'></image>
+    <view class='modal-goods-content'>
+      <text class='goods_price'>￥288.00</text>
+      <text>库存100</text>
+      <text>请选择尺码颜色</text>
+    </view> 
+    <icon catchtap='hideModal' type='clear' size='20'></icon>
+  </view>
+  <view class='modal-box-body'>
+    <view class='modal-item-box'>
+      <view class='item-name'>尺寸</view>
+      <view class='item-list'>
+        <view>
+          <view>L</view>
+        </view>
+        <view>
+          <view>LLL</view>
+        </view>
+        <view>
+          <view>LL</view>
+        </view>         
+      </view>
+    </view>
+    <view class='modal-item-box'>
+      <view class='item-name'>颜色</view>
+      <view class='item-list'>
+        <view>
+          <view>红色</view>
+        </view>
+        <view>
+          <view>蓝色</view>
+        </view>
+        <view>
+          <view>黄色</view>
+        </view>
+      </view>
+    </view>
+    <view class='modal-item-box'>
+      <view class='item-name'>数量</view>
+      <view class='btn-box'>
+        <view class='del'>-</view>
+        <view class='modal-goodscount'>2</view>
+        <view class='add'>+</view>
+      </view>  
+    </view>
+  </view>
+  <view class='modal-box-foot'>
+    <view class='carsicon'>
+      <image src='../../images/toolbar/publishgoods_fill.png' mode='aspectFit'></image>
+      <view class='goodscount'>99</view>
+    </view>
+    <view class='addcars'>加入购物车</view>
+    <view class='lijigou'>立即购买</view>
+  </view>
+</view>
+
+

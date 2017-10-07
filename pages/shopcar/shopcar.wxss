@@ -1,0 +1,113 @@
+/* pages/shopcar/shopcar.wxss */
+page{
+  background: #f2ebe3;  
+  font-size: 25rpx;
+}
+.car-head,.car-goods-list,.car-goods-des,.btn-box,.btn,.foot-item,.icon-item{
+  display: flex;
+}
+
+.car-head{
+  color:#7C7C7C;
+  height:70rpx;
+  background: #E8E9E9;
+  justify-content:space-between;
+}
+.car-head-ch{
+  width: 150rpx;
+  line-height:70rpx;
+  text-align:center;
+}
+
+/*商品部分  */
+.car-goods{
+  margin-bottom: 150rpx;
+  background: #fff;
+  padding-bottom:100rpx;
+}
+.car-goods-list{
+  height: 230rpx;
+  margin-left: 25rpx;
+  background: #fff;
+  align-items:center; 
+  border-bottom: 1px solid #E8E9E9;
+}
+.car-goods-icon{
+  height:20px;
+  width: 20px;
+  border-radius:10px; 
+  border: 1px solid #c;
+  background: #E8E9E9;
+}
+
+.car-goods-list>image{
+  width:200rpx;
+  height:200rpx;
+  margin-left:25rpx;
+}
+
+.car-goods-des{
+  flex:2;
+  margin-left:30rpx;
+  height: 200rpx;
+  margin-right:25rpx;
+  flex-direction:column;
+} 
+.goods-des{
+   height: 130rpx;
+   overflow: hidden;
+}
+.btn-box{
+  z-index: 6666;
+  align-items:center; 
+  justify-content:space-between;
+}
+.btn,.add-del,.btn>text{
+  text-align: center;
+  height: 50rpx;
+  line-height:50rpx;
+  border: 1px solid #ccc;
+}
+.btn{
+  width: 170rpx;
+  margin-right: 60rpx;
+  justify-content:space-between;
+}
+.add-del{
+  width: 50rpx;
+}
+.btn>text{
+  width: 60rpx;
+}
+
+/*底部  */
+.car-foot{
+  height: 100rpx;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  bottom: 0px;
+  border-bottom: 1px solid #E8E9E9;
+}
+.foot-item{
+  margin-left: 25rpx;
+  align-items:center; 
+  justify-content:space-between;
+}
+.icon-item{
+  align-items:center; 
+}
+#jiesuan{
+  color: #fff;
+  height:100rpx;
+  width: 280rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 100rpx; 
+  background: red;
+}
+#heji{
+  color: red;
+  text-align: right;
+}
+
